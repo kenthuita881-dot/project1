@@ -1,64 +1,142 @@
-/* Element selectors */
+/* ---------- Base ---------- */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   background-color: #f4f6f8;
   color: #222;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
-h1 {
-  text-align: center;
-  color: #1a5276;
-  margin-bottom: 4px;
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-h2 {
-  margin-top: 0;
+.site-header h1 {
+  margin: 0;
 }
 
-label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 4px;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-}
-
-/* Class selectors */
 .subtitle {
-  text-align: center;
-  color: #555;
-  margin-bottom: 24px;
+  color: #666;
 }
 
 .card {
-  padding: 20px;
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
   border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-.placeholder {
-  color: #888;
-  font-style: italic;
-  text-align: center;
+/* ---------- Interactive element: details / summary ---------- */
+.help {
+  background-color: #eaf1ff;
+  border-left: 4px solid #2f6fed;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
 }
 
-/* ID selectors */
-#add-expense {
-  background-color: #d6eaf8;
-  border: 2px solid #2e86c1;
+.help summary {
+  cursor: pointer;
+  font-weight: bold;
 }
 
-#expenses-list {
-  background-color: #fdebd0;
-  border: 2px dashed #e67e22;
+/* ---------- Advanced selectors ---------- */
+
+/* Direct child selector: only the heading directly inside the section */
+.add-expense-section > h2 {
+  margin-top: 0;
+}
+
+/* Direct child selector: labels that sit directly inside the form */
+#expense-form > label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: bold;
+}
+
+/* Negation pseudo-class: every input except a submit-type input */
+input:not([type="submit"]),
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* Focus state for inputs and the dropdown */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2f6fed;
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.25);
+}
+
+/* ---------- Button ---------- */
+#add-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2f6fed;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#add-btn:hover {
+  background-color: #1f56c4;
+}
+
+/* ---------- Expenses table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+thead th {
+  background-color: #2f6fed;
+  color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f6ff;
+}
+
+/* Hover effect on table rows */
+tbody tr:hover {
+  background-color: #dce8ff;
+}
+
+/* Descendant selector: every td inside the expenses section */
+.expenses-section td {
+  font-size: 0.95rem;
+}
+
+/* Position-based pseudo-classes */
+tbody tr:first-child td {
+  font-weight: bold;
+}
+
+tbody tr:last-child td {
+  border-bottom: 2px solid #2f6fed;
+}
+
+/* ---------- Video ---------- */
+iframe {
+  max-width: 100%;
+  border: 0;
 }
